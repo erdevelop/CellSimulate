@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    public Rigidbody rb;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("program is started..");
         
     }
 
