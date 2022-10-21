@@ -15,18 +15,11 @@ public class Destroy : MonoBehaviour
     {
         
     }
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.tag == "Cell")
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Cell")
-        {
-            Destroy(gameObject);
-        }
+        //if(collision.gameObject.tag == "Cell")
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 }

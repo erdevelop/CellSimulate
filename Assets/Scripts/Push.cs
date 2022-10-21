@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Moving : MonoBehaviour
+public class Push : MonoBehaviour
 {
-    public static Moving Instance;
-
     bool movings;
     float speed;
     float speedMax;
 
-    Rigidbody rb;
+    [SerializeField] Rigidbody rb;
 
     public bool Movings
     {
@@ -45,23 +44,19 @@ public class Moving : MonoBehaviour
             speedMax = value;
         }
     }
-    private void Awake()
-    {
-        Instance = this;
-    }
-
+    
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Spawn>().cellPrefab.GetComponent<Rigidbody>();
         Movings = true;
         SpeedMax = 10.0f;
     }
     // Update is called once per frame
-    void FixedUpdate()
+    void PushButton()
     {
         Move();
-        
-        
+
+
     }
     public void Move()
     {
@@ -95,4 +90,5 @@ public class Moving : MonoBehaviour
             }
         }
     }
+
 }
