@@ -20,18 +20,22 @@ public class Destroy_cell_1 : MonoBehaviour
         if (collision.gameObject.tag == "cell_0" || collision.gameObject.tag == "cell_1" ||
             collision.gameObject.tag == "cell_2" || collision.gameObject.tag == "cell_3")
         {
-            if (collision.gameObject.transform.localScale.x >= gameObject.transform.localScale.x)
-            {
-                Destroy(gameObject, 0.1f);
-            }
-            else if (collision.gameObject.transform.localScale.x >= 3f || gameObject.transform.localScale.x >= 3f)
-            {
-                Destroy(gameObject, 0.1f);
-            }
-            else
+            if (collision.gameObject.transform.localScale.x <= gameObject.transform.localScale.x)
             {
                 gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+                Spawn.Instance.skore_1++;
+                switch (collision.gameObject.tag)
+                {
+                    case "cell_0": Spawn.Instance.cellCount_0--; Destroy(collision.gameObject); break;
+                    case "cell_1": Spawn.Instance.cellCount_1--; Destroy(collision.gameObject); break;
+                    case "cell_2": Spawn.Instance.cellCount_2--; Destroy(collision.gameObject); break;
+                    case "cell_3": Spawn.Instance.cellCount_3--; Destroy(collision.gameObject); break;
+                    default:
+                        break;
+                }
             }
         }
+        Spawn.Instance.Stats();
+        Spawn.Instance.Skore();
     }
 }
