@@ -26,8 +26,7 @@ public class Moving : MonoBehaviour
     {
         if (movings)
         {
-            rb.AddForce(Speedy(-speed, speed), 0, Speedy(-speed, speed), ForceMode.VelocityChange);
-            //movings = false;   
+            rb.AddForce(Speedy(-speed, speed), 0, Speedy(-speed, speed), ForceMode.VelocityChange); 
         }
     }
     public float Speedy(float spMin, float spMax)

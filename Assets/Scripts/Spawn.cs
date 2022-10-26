@@ -14,7 +14,7 @@ public class Spawn : MonoBehaviour
 
     float ekranMinMax = 16;
 
-    int cellCount = 4;
+    public int cellCount;
 
     public GameObject cell_0;
     public GameObject cell_1;
@@ -33,8 +33,6 @@ public class Spawn : MonoBehaviour
     public float skore_1;
     public float skore_2;
     public float skore_3;
-
-
 
     private void Awake()
     {
@@ -76,6 +74,8 @@ public class Spawn : MonoBehaviour
     }
     public void Spawner()
     {
+        
+
         for (int i = 0; i < cellCount; i++)
         {
             int sizeChoosing = Random.Range(0, 4);
