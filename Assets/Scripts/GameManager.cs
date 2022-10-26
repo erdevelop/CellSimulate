@@ -18,4 +18,9 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void PushButton()
+    {
+        Spawn.Instance.Spawner();
+    }
 }

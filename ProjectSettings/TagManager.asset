@@ -5,11 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Cell
+  - cell_0
+  - cell_1
+  - cell_2
+  - cell_3
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - cell
   - Water
   - UI
   - 
@@ -41,4 +45,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 2641795159
+    locked: 0
+  - name: cell
+    uniqueID: 2005898013
     locked: 0

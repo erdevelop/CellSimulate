@@ -4,95 +4,35 @@ using UnityEngine;
 
 public class Moving : MonoBehaviour
 {
-    public static Moving Instance;
-
     bool movings;
+
     float speed;
-    float speedMax;
 
     Rigidbody rb;
-
-    public bool Movings
-    {
-        get
-        {
-            return movings;
-        }
-        set
-        {
-            movings = value;
-        }
-    }
-    public float Speed
-    {
-        get
-        {
-            return speed;
-        }
-        set
-        {
-            speed = value;
-        }
-    }
-    public float SpeedMax
-    {
-        get
-        {
-            return speedMax;
-        }
-        set
-        {
-            speedMax = value;
-        }
-    }
-    private void Awake()
-    {
-        Instance = this;
-    }
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Movings = true;
-        SpeedMax = 10.0f;
+        movings = true;
+        speed = 1f;
     }
     // Update is called once per frame
     void FixedUpdate()
     {
         Move();
-        
-        
     }
+        
     public void Move()
     {
-        if (Movings)
+        if (movings)
         {
-            int choosing = Random.Range(0, 4);
-
-            if (choosing == 0)
-            {
-                Speed = Random.Range(1.0f, SpeedMax);
-                rb.AddForce(Speed, transform.position.y, transform.position.z, ForceMode.Impulse);
-                Movings = false;
-            }
-            else if (choosing == 1)
-            {
-                Speed = Random.Range(1.0f, SpeedMax);
-                rb.AddForce(transform.position.x, transform.position.y, Speed, ForceMode.Impulse);
-                Movings = false;
-            }
-            else if (choosing == 2)
-            {
-                Speed = Random.Range(1.0f, SpeedMax);
-                rb.AddForce(transform.position.x, transform.position.y, -Speed, ForceMode.Impulse);
-                Movings = false;
-            }
-            else if (choosing == 3)
-            {
-                Speed = Random.Range(1.0f, SpeedMax);
-                rb.AddForce(-Speed, transform.position.y, transform.position.z, ForceMode.Impulse);
-                Movings = false;
-            }
+            rb.AddForce(Speedy(-speed, speed), 0, Speedy(-speed, speed), ForceMode.VelocityChange);
+            //movings = false;   
         }
     }
+    public float Speedy(float spMin, float spMax)
+    {
+        return Random.Range(spMin, spMax);
+    }
+    
 }
